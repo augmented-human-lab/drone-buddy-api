@@ -7,6 +7,7 @@ from dronebuddylib import IntentRecognitionEngine
 from dronebuddylib.models import EngineConfigurations
 from dronebuddylib.models.enums import IntentRecognitionAlgorithm
 from dronebuddylib.utils.logger import Logger
+from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -35,6 +36,7 @@ class IntentRecognitionView(APIView):
         request_body=openapi.Schema(
             type=openapi.TYPE_OBJECT,
             properties={
+                'text': openapi.Schema(type=openapi.TYPE_STRING),
                 'engine_configurations': openapi.Schema(
                     type=openapi.TYPE_OBJECT,
                     additional_properties=openapi.Schema(type=openapi.TYPE_STRING)
@@ -62,3 +64,19 @@ class IntentRecognitionView(APIView):
                              'result': recognized_intent.to_json()})
         else:
             return Response(serializer.errors, status=400)
+
+        # Define the GET method
+
+    @swagger_auto_schema(
+        responses={200: openapi.Response('Example GET response')}
+    )
+    def get(self, request, *args, **kwargs):
+        # Perform some logic here to retrieve data you want to return
+        # For example, you can retrieve data from the database
+        # or simply return a placeholder response like below:
+
+        response_data = {
+            'message': 'This is a GET response',
+            'data': 'Add your data here'
+        }
+        return Response(response_data, status=status.HTTP_200_OK)
