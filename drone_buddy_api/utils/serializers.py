@@ -18,6 +18,10 @@ class TextRecognitionSerializer(serializers.Serializer):
     engine_configurations = serializers.CharField()  # Temporarily change this to a CharField
 
 
+class VoiceGenerationSerializer(serializers.Serializer):
+    text = serializers.CharField()  # Temporarily change this to a CharField
+
+
 class IntentRecognitionSerializer(serializers.Serializer):
     engine_configurations = serializers.CharField()  # Temporarily change this to a CharField
     text = serializers.CharField()  # Temporarily change this to a CharField

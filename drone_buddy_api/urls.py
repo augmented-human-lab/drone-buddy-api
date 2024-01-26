@@ -26,6 +26,7 @@ from drone_buddy_api.views.hand_feature_extraction import HandFeatureExtractionV
 from drone_buddy_api.views.intent_recognition import IntentRecognitionView
 from drone_buddy_api.views.object_detection import DetectObjectsView
 from drone_buddy_api.views.text_recognition import TextRecognitionView
+from drone_buddy_api.views.voice_generation import VoiceGenerationView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -56,6 +57,8 @@ urlpatterns = [
          name='recognize_text'),
     path('atoms/feature-recognition/recognize-hand-gesture/', HandFeatureExtractionView.as_view(),
          name='recognize_hand_gesture'),
+    path('atoms/voice-generation/generate-voice/', VoiceGenerationView.as_view(),
+         name='generate_voice'),
 
     # path('atoms/object-detection/detect-objects', detect_objects, name='detect_objects'),
 ]

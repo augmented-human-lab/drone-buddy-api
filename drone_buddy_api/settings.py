@@ -27,7 +27,7 @@ DEBUG = True
 # Django CORS Headers settings
 CORS_ALLOW_ALL_ORIGINS = True  # Warning: This is not recommended for production use!
 
-ALLOWED_HOSTS = ['10.0.2.2', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['10.0.2.2', 'localhost', '127.0.0.1','172.26.62.54','172.20.10.2']
 
 # Application definition
 
